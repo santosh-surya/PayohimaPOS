@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Page One</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Ionic Menu Starter</h3>
+  <ion-item>
+    <ion-label>Select Printer</ion-label>
+    <ion-select [(ngModel)]="device">
+      <ion-option *ngFor="let d of printer.devices" value="{{d.address}}">{{d.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+    <button block ion-button *ngIf="!printer.connected" (click)="connect()" >Connect</button>
+    <button block ion-button *ngIf="printer.connected" color="danger" (click)="disconnect()" >Disconnect</button>
+    <button block ion-button *ngIf="!printer.connected" (click)="listDevices()" >Refresh</button>
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="data"></ion-input>
+  </ion-item>
+  <button block ion-button secondary (click)="print()" >Print</button>
+  <button block ion-button secondary (click)="nextline()" >Next Line</button>
+  <button block ion-button secondary (click)="feedFiveLines()" >Feed 5 Lines</button>
+  <button block ion-button secondary (click)="setEmphasiedOn()" >EmphasizeOn</button>
+  <button block ion-button secondary (click)="setEmphasiedOff()" >EmphasizeOFF</button>
+  <button block ion-button secondary (click)="setCharA()" >charA</button>
+  <button block ion-button secondary (click)="setCharB()" >CharB</button>
+  <button block ion-button secondary (click)="setUnderlineOn()" >Underline ON</button>
+  <button block ion-button secondary (click)="setUnderlineOff()" >Underline OFF</button>
+  <button block ion-button secondary (click)="setDoubleWidthOn()" >Double Width On</button>
+  <button block ion-button secondary (click)="setDoubleWidthOff()" >Double Width OFF</button>
+  <button block ion-button secondary (click)="setDoubleHeightOn()" >Double Height On</button>
+  <button block ion-button secondary (click)="setDoubleHeightOff()" >Double Height OFF</button>
+  <button block ion-button secondary (click)="setJustificationLeft()" >Left</button>
+  <button block ion-button secondary (click)="setJustifiationCentre()" >Centre</button>
+  <button block ion-button secondary (click)="setJustifiationRight()" >Right</button>
+
+</ion-content>

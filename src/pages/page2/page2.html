@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Page Two</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>BTPrinter</h3>
+  <ion-item>
+    <ion-label>Select Printer</ion-label>
+    <ion-select [(ngModel)]="device">
+      <ion-option *ngFor="let d of devices" value="{{d}}">{{d}}</ion-option>
+    </ion-select>
+  </ion-item>
+    <button ion-button secondary *ngIf="connected" (click)="disconnect()" >Disconnect</button>
+    <button ion-button secondary *ngIf="!connected" (click)="connect()" >Connect</button>
+    <button ion-button default  *ngIf="!connected" (click)="listDevices()" >Refresh</button>
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="data"></ion-input>
+  </ion-item>
+  <button block ion-button secondary (click)="send()" >Send Data</button>
+  <button block ion-button secondary (click)="sendCommand()" >Send Command</button>
+</ion-content>
